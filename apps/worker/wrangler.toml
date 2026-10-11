@@ -32,7 +32,7 @@ preview_id = "local-cache-preview"
 [env.staging]
 workers_dev = true
 routes = [
-  { pattern = "staging.wemail.willxue.com/api/*", zone_name = "willxue.com" }
+  { pattern = "staging.emo.cloudns.be/api/*", zone_name = "emo.cloudns.be" }
 ]
 
 [env.staging.vars]
@@ -40,7 +40,7 @@ ENVIRONMENT = "staging"
 APP_NAME = "WeMail"
 COOKIE_NAME = "wemail_session"
 COOKIE_SECURE = "true"
-CORS_ALLOWED_ORIGINS = "https://staging.wemail.willxue.com"
+CORS_ALLOWED_ORIGINS = "https://staging.wemail.emo.cloudns.be"
 
 [[env.staging.d1_databases]]
 binding = "DB"
@@ -55,7 +55,7 @@ preview_id = "replace-with-staging-kv-preview-id"
 
 [[env.staging.r2_buckets]]
 binding = "ATTACHMENTS"
-bucket_name = "wemail-staging-attachments"
+bucket_name = "wemail-production-attachments"
 
 [[env.staging.ratelimits]]
 name = "RATE_LIMITER"
@@ -71,17 +71,16 @@ crons = ["0 * * * *"]
 [env.production]
 workers_dev = true
 routes = [
-  { pattern = "wemail.willxue.com/api/*", zone_name = "willxue.com" },
-  { pattern = "wemail-api.willxue.com/api/*", zone_name = "willxue.com" }
+  { pattern = "wemail.emo.cloudns.be/api/*", zone_name = "emo.cloudns.be" },
+  { pattern = "wemail-api.emo.cloudns.be/api/*", zone_name = "emo.cloudns.be" }
 ]
 
 [env.production.vars]
 ENVIRONMENT = "production"
 APP_NAME = "WeMail"
 COOKIE_NAME = "wemail_session"
-COOKIE_DOMAIN = ".willxue.com"
 COOKIE_SECURE = "true"
-CORS_ALLOWED_ORIGINS = "https://wemail.willxue.com"
+CORS_ALLOWED_ORIGINS = "https://wemail.emo.cloudns.be"
 TELEGRAM_BOT_USERNAME = "WeMailProBot"
 
 [[env.production.d1_databases]]
